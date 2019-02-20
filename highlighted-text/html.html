@@ -1,0 +1,13 @@
+<form class="example-form"
+      autocomplete="off">
+  <mat-form-field>
+    <input matInput
+          placeholder="Search Term"
+          value="hello"
+          (keyup)="0"
+          #searchTerm>
+  </mat-form-field>
+</form>
+<kb-highlighted-text [needle]="searchTerm.value"
+                     [haystack]="content">
+</kb-highlighted-text>
