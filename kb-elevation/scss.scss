@@ -1,0 +1,9 @@
+.red-box {
+  width: 4em;
+  height: 4em;
+  background: red;
+  margin: 0 1em;
+
+  /* important for animation between states */
+  transition: all 250ms;
+}
