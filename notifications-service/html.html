@@ -1,0 +1,34 @@
+<button mat-raised-button
+        kbElevation
+        color="primary"
+        (click)="addNotification()">
+  Generate Notification
+</button>
+
+<button mat-button
+        disabled="disabled">
+  <i class="material-icons">
+    notifications
+  </i>
+</button>
+<mat-list role="list"
+          class="notifications">
+  <mat-list-item role="listitem"
+                 class="kb-notification"
+                 [class.added]="notification.class === 'added'"
+                 *ngFor="let notification of notifications">
+    <span style="display: flex;">
+      <ng-container [ngSwitch]="notification.type">
+        <mat-icon *ngSwitchCase="'created'">create_new_folder</mat-icon>
+        <mat-icon *ngSwitchCase="'starred'">folder_special</mat-icon>
+        <mat-icon *ngSwitchDefault>notification_important</mat-icon>
+      </ng-container>
+      <span style="white-space: normal;">{{ notification.title }}</span>
+    </span>
+    <div class="date">{{ notification.created | timeAgo }}</div>
+  </mat-list-item>
+  <mat-list-item role="listitem"
+                *ngIf="notifications.length === 0">
+    No notifications yet
+  </mat-list-item>
+</mat-list>
